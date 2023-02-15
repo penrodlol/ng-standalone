@@ -36,7 +36,6 @@ bootstrapApplication(App, {
   providers: [
     importProvidersFrom(
       RouterModule.forRoot([
-        { path: '**', redirectTo: '/', pathMatch: 'full' },
         {
           path: '',
           loadComponent: () =>
@@ -47,6 +46,7 @@ bootstrapApplication(App, {
           loadComponent: () =>
             import('./app/pages/about').then((m) => m.AboutPage),
         },
+        { path: '**', redirectTo: '/', pathMatch: 'full' },
       ]),
     ),
   ],
